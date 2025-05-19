@@ -1,24 +1,48 @@
- <!DOCTYPE html>
-        <html lang="nl">
-        <head>
-            <title>Vue CDN</title>
-            <script src="https://unpkg.com/vue@3"></script>
-        </head>
-        <body>
-            <div id="app">
-                Tekst vanuit data: <i>{{tekst}}</i>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./app.css" />
+     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Document</title>
+  </head>
+  <body>
+<div class="zoekbalk">
+        <div class="zoekbalk1">
+            <a target="_blank" href="doc-website/tuiboven.png">
+                
+            </a>
+            <input class="zoekbalk" type="text" placeholder="vakantie of bestemming" name="vakantie of bestemming  ">
+        </div>
+        <div class="tui_balk2">
+
+            <a class="vakanties" href="service-contact.php">Service & Contact</a>
+            <a class="poppetje" href="visibility.php"><i class="material-icons"> visibility</i> </a>
+            <a class="poppetje" href="favorite.php"><i class="material-icons"> favorite</i> </a>
+            <a class="poppetje" href="person.php"><i class="material-icons"> person</i> </a>
+            <a class="vakanties" href="#"> </a>
+        </div>
+    </div>
+    <header>
+    <div class="off-screen-menu">
+      <ul>
         
-            <script>
-                Vue.createApp({
-                data() {
-                    return {
-                        tekst: "dit is een test tekst",
-                        lijst: ["aaa", "bee", "cee"]
-                        }
-                    }
-                }).mount('#app')
-            </script>
+        <li><a href="#">home</a></li>
+        <li><a href="#">about</a></li>
+        <li><a href="#">contact</a></li>
+      </ul>
+    </div>
+
+    <nav>
+      <div class="ham-menu">
         
-        </body>
-        </html>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+   </header>
+    <script src="./app.js"></script>
+  </body>
+</html>

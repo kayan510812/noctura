@@ -1,0 +1,42 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const mysql = require('mysql2');
+
+const app = express();
+app.use(bodyParser.json());
+app.use(express.static('.')); // Voor het serveren van register.html
+
+// Maak verbinding met de database 'noctura'
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'jouw_gebruikersnaam',
+    password: 'jouw_wachtwoord',
+    database: 'noctura'
+});
+
+db.connect(err => {
+    if (err) throw err;
+    console.log('Verbonden met database noctura');
+});
+
+// Registratie endpoint
+app.post('/register', (req, res) => {
+    const { username, password } = req.body;
+    if (!username || !password) {
+        return res.json({ message: 'Vul alle velden in.' });
+    }
+    db.query(
+        'INSERT INTO users (username, password) VALUES (?, ?)',
+        [username, password],
+        (err, result) => {
+            if (err) {
+                return res.json({ message: 'Fout bij registreren.' });
+            }
+            res.json({ message: 'Registratie gelukt!' });
+        }
+    );
+});
+
+app.listen(3000, () => {
+    console.log('Server draait op http://localhost:3000');
+});
